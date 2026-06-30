@@ -10,7 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VolunteerRouteImport } from './routes/volunteer'
+import { Route as RequiredDocumentsRouteImport } from './routes/required-documents'
+import { Route as PsychologistsRouteImport } from './routes/psychologists'
+import { Route as NewsRouteImport } from './routes/news'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ClinicsRouteImport } from './routes/clinics'
 import { Route as ApplyRouteImport } from './routes/apply'
+import { Route as ActivitiesRouteImport } from './routes/activities'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SchoolsIndexRouteImport } from './routes/schools.index'
 import { Route as SchoolsSchoolIdRouteImport } from './routes/schools.$schoolId'
@@ -20,9 +26,39 @@ const VolunteerRoute = VolunteerRouteImport.update({
   path: '/volunteer',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RequiredDocumentsRoute = RequiredDocumentsRouteImport.update({
+  id: '/required-documents',
+  path: '/required-documents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PsychologistsRoute = PsychologistsRouteImport.update({
+  id: '/psychologists',
+  path: '/psychologists',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsRoute = NewsRouteImport.update({
+  id: '/news',
+  path: '/news',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClinicsRoute = ClinicsRouteImport.update({
+  id: '/clinics',
+  path: '/clinics',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApplyRoute = ApplyRouteImport.update({
   id: '/apply',
   path: '/apply',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActivitiesRoute = ActivitiesRouteImport.update({
+  id: '/activities',
+  path: '/activities',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -43,14 +79,26 @@ const SchoolsSchoolIdRoute = SchoolsSchoolIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/activities': typeof ActivitiesRoute
   '/apply': typeof ApplyRoute
+  '/clinics': typeof ClinicsRoute
+  '/contact': typeof ContactRoute
+  '/news': typeof NewsRoute
+  '/psychologists': typeof PsychologistsRoute
+  '/required-documents': typeof RequiredDocumentsRoute
   '/volunteer': typeof VolunteerRoute
   '/schools/$schoolId': typeof SchoolsSchoolIdRoute
   '/schools/': typeof SchoolsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/activities': typeof ActivitiesRoute
   '/apply': typeof ApplyRoute
+  '/clinics': typeof ClinicsRoute
+  '/contact': typeof ContactRoute
+  '/news': typeof NewsRoute
+  '/psychologists': typeof PsychologistsRoute
+  '/required-documents': typeof RequiredDocumentsRoute
   '/volunteer': typeof VolunteerRoute
   '/schools/$schoolId': typeof SchoolsSchoolIdRoute
   '/schools': typeof SchoolsIndexRoute
@@ -58,20 +106,54 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/activities': typeof ActivitiesRoute
   '/apply': typeof ApplyRoute
+  '/clinics': typeof ClinicsRoute
+  '/contact': typeof ContactRoute
+  '/news': typeof NewsRoute
+  '/psychologists': typeof PsychologistsRoute
+  '/required-documents': typeof RequiredDocumentsRoute
   '/volunteer': typeof VolunteerRoute
   '/schools/$schoolId': typeof SchoolsSchoolIdRoute
   '/schools/': typeof SchoolsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/apply' | '/volunteer' | '/schools/$schoolId' | '/schools/'
+  fullPaths:
+    | '/'
+    | '/activities'
+    | '/apply'
+    | '/clinics'
+    | '/contact'
+    | '/news'
+    | '/psychologists'
+    | '/required-documents'
+    | '/volunteer'
+    | '/schools/$schoolId'
+    | '/schools/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/apply' | '/volunteer' | '/schools/$schoolId' | '/schools'
+  to:
+    | '/'
+    | '/activities'
+    | '/apply'
+    | '/clinics'
+    | '/contact'
+    | '/news'
+    | '/psychologists'
+    | '/required-documents'
+    | '/volunteer'
+    | '/schools/$schoolId'
+    | '/schools'
   id:
     | '__root__'
     | '/'
+    | '/activities'
     | '/apply'
+    | '/clinics'
+    | '/contact'
+    | '/news'
+    | '/psychologists'
+    | '/required-documents'
     | '/volunteer'
     | '/schools/$schoolId'
     | '/schools/'
@@ -79,7 +161,13 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ActivitiesRoute: typeof ActivitiesRoute
   ApplyRoute: typeof ApplyRoute
+  ClinicsRoute: typeof ClinicsRoute
+  ContactRoute: typeof ContactRoute
+  NewsRoute: typeof NewsRoute
+  PsychologistsRoute: typeof PsychologistsRoute
+  RequiredDocumentsRoute: typeof RequiredDocumentsRoute
   VolunteerRoute: typeof VolunteerRoute
   SchoolsSchoolIdRoute: typeof SchoolsSchoolIdRoute
   SchoolsIndexRoute: typeof SchoolsIndexRoute
@@ -94,11 +182,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VolunteerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/required-documents': {
+      id: '/required-documents'
+      path: '/required-documents'
+      fullPath: '/required-documents'
+      preLoaderRoute: typeof RequiredDocumentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/psychologists': {
+      id: '/psychologists'
+      path: '/psychologists'
+      fullPath: '/psychologists'
+      preLoaderRoute: typeof PsychologistsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news': {
+      id: '/news'
+      path: '/news'
+      fullPath: '/news'
+      preLoaderRoute: typeof NewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/clinics': {
+      id: '/clinics'
+      path: '/clinics'
+      fullPath: '/clinics'
+      preLoaderRoute: typeof ClinicsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/apply': {
       id: '/apply'
       path: '/apply'
       fullPath: '/apply'
       preLoaderRoute: typeof ApplyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/activities': {
+      id: '/activities'
+      path: '/activities'
+      fullPath: '/activities'
+      preLoaderRoute: typeof ActivitiesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -127,7 +257,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ActivitiesRoute: ActivitiesRoute,
   ApplyRoute: ApplyRoute,
+  ClinicsRoute: ClinicsRoute,
+  ContactRoute: ContactRoute,
+  NewsRoute: NewsRoute,
+  PsychologistsRoute: PsychologistsRoute,
+  RequiredDocumentsRoute: RequiredDocumentsRoute,
   VolunteerRoute: VolunteerRoute,
   SchoolsSchoolIdRoute: SchoolsSchoolIdRoute,
   SchoolsIndexRoute: SchoolsIndexRoute,
