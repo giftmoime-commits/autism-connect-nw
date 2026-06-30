@@ -10,14 +10,19 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VolunteerRouteImport } from './routes/volunteer'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as RequiredDocumentsRouteImport } from './routes/required-documents'
 import { Route as PsychologistsRouteImport } from './routes/psychologists'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as NewsRouteImport } from './routes/news'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ClinicsRouteImport } from './routes/clinics'
 import { Route as ApplyRouteImport } from './routes/apply'
 import { Route as ActivitiesRouteImport } from './routes/activities'
+import { Route as AccessibilityRouteImport } from './routes/accessibility'
+import { Route as AboutAutismRouteImport } from './routes/about-autism'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SchoolsIndexRouteImport } from './routes/schools.index'
@@ -26,6 +31,11 @@ import { Route as SchoolsSchoolIdRouteImport } from './routes/schools.$schoolId'
 const VolunteerRoute = VolunteerRouteImport.update({
   id: '/volunteer',
   path: '/volunteer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResourcesRoute = ResourcesRouteImport.update({
@@ -43,9 +53,19 @@ const PsychologistsRoute = PsychologistsRouteImport.update({
   path: '/psychologists',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NewsRoute = NewsRouteImport.update({
   id: '/news',
   path: '/news',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -66,6 +86,16 @@ const ApplyRoute = ApplyRouteImport.update({
 const ActivitiesRoute = ActivitiesRouteImport.update({
   id: '/activities',
   path: '/activities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccessibilityRoute = AccessibilityRouteImport.update({
+  id: '/accessibility',
+  path: '/accessibility',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutAutismRoute = AboutAutismRouteImport.update({
+  id: '/about-autism',
+  path: '/about-autism',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -92,14 +122,19 @@ const SchoolsSchoolIdRoute = SchoolsSchoolIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/about-autism': typeof AboutAutismRoute
+  '/accessibility': typeof AccessibilityRoute
   '/activities': typeof ActivitiesRoute
   '/apply': typeof ApplyRoute
   '/clinics': typeof ClinicsRoute
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
   '/news': typeof NewsRoute
+  '/privacy': typeof PrivacyRoute
   '/psychologists': typeof PsychologistsRoute
   '/required-documents': typeof RequiredDocumentsRoute
   '/resources': typeof ResourcesRoute
+  '/terms': typeof TermsRoute
   '/volunteer': typeof VolunteerRoute
   '/schools/$schoolId': typeof SchoolsSchoolIdRoute
   '/schools/': typeof SchoolsIndexRoute
@@ -107,14 +142,19 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/about-autism': typeof AboutAutismRoute
+  '/accessibility': typeof AccessibilityRoute
   '/activities': typeof ActivitiesRoute
   '/apply': typeof ApplyRoute
   '/clinics': typeof ClinicsRoute
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
   '/news': typeof NewsRoute
+  '/privacy': typeof PrivacyRoute
   '/psychologists': typeof PsychologistsRoute
   '/required-documents': typeof RequiredDocumentsRoute
   '/resources': typeof ResourcesRoute
+  '/terms': typeof TermsRoute
   '/volunteer': typeof VolunteerRoute
   '/schools/$schoolId': typeof SchoolsSchoolIdRoute
   '/schools': typeof SchoolsIndexRoute
@@ -123,14 +163,19 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/about-autism': typeof AboutAutismRoute
+  '/accessibility': typeof AccessibilityRoute
   '/activities': typeof ActivitiesRoute
   '/apply': typeof ApplyRoute
   '/clinics': typeof ClinicsRoute
   '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
   '/news': typeof NewsRoute
+  '/privacy': typeof PrivacyRoute
   '/psychologists': typeof PsychologistsRoute
   '/required-documents': typeof RequiredDocumentsRoute
   '/resources': typeof ResourcesRoute
+  '/terms': typeof TermsRoute
   '/volunteer': typeof VolunteerRoute
   '/schools/$schoolId': typeof SchoolsSchoolIdRoute
   '/schools/': typeof SchoolsIndexRoute
@@ -140,14 +185,19 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/about-autism'
+    | '/accessibility'
     | '/activities'
     | '/apply'
     | '/clinics'
     | '/contact'
+    | '/faq'
     | '/news'
+    | '/privacy'
     | '/psychologists'
     | '/required-documents'
     | '/resources'
+    | '/terms'
     | '/volunteer'
     | '/schools/$schoolId'
     | '/schools/'
@@ -155,14 +205,19 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/about-autism'
+    | '/accessibility'
     | '/activities'
     | '/apply'
     | '/clinics'
     | '/contact'
+    | '/faq'
     | '/news'
+    | '/privacy'
     | '/psychologists'
     | '/required-documents'
     | '/resources'
+    | '/terms'
     | '/volunteer'
     | '/schools/$schoolId'
     | '/schools'
@@ -170,14 +225,19 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/about-autism'
+    | '/accessibility'
     | '/activities'
     | '/apply'
     | '/clinics'
     | '/contact'
+    | '/faq'
     | '/news'
+    | '/privacy'
     | '/psychologists'
     | '/required-documents'
     | '/resources'
+    | '/terms'
     | '/volunteer'
     | '/schools/$schoolId'
     | '/schools/'
@@ -186,14 +246,19 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AboutAutismRoute: typeof AboutAutismRoute
+  AccessibilityRoute: typeof AccessibilityRoute
   ActivitiesRoute: typeof ActivitiesRoute
   ApplyRoute: typeof ApplyRoute
   ClinicsRoute: typeof ClinicsRoute
   ContactRoute: typeof ContactRoute
+  FaqRoute: typeof FaqRoute
   NewsRoute: typeof NewsRoute
+  PrivacyRoute: typeof PrivacyRoute
   PsychologistsRoute: typeof PsychologistsRoute
   RequiredDocumentsRoute: typeof RequiredDocumentsRoute
   ResourcesRoute: typeof ResourcesRoute
+  TermsRoute: typeof TermsRoute
   VolunteerRoute: typeof VolunteerRoute
   SchoolsSchoolIdRoute: typeof SchoolsSchoolIdRoute
   SchoolsIndexRoute: typeof SchoolsIndexRoute
@@ -206,6 +271,13 @@ declare module '@tanstack/react-router' {
       path: '/volunteer'
       fullPath: '/volunteer'
       preLoaderRoute: typeof VolunteerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/resources': {
@@ -229,11 +301,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PsychologistsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/news': {
       id: '/news'
       path: '/news'
       fullPath: '/news'
       preLoaderRoute: typeof NewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -262,6 +348,20 @@ declare module '@tanstack/react-router' {
       path: '/activities'
       fullPath: '/activities'
       preLoaderRoute: typeof ActivitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accessibility': {
+      id: '/accessibility'
+      path: '/accessibility'
+      fullPath: '/accessibility'
+      preLoaderRoute: typeof AccessibilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about-autism': {
+      id: '/about-autism'
+      path: '/about-autism'
+      fullPath: '/about-autism'
+      preLoaderRoute: typeof AboutAutismRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -298,14 +398,19 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AboutAutismRoute: AboutAutismRoute,
+  AccessibilityRoute: AccessibilityRoute,
   ActivitiesRoute: ActivitiesRoute,
   ApplyRoute: ApplyRoute,
   ClinicsRoute: ClinicsRoute,
   ContactRoute: ContactRoute,
+  FaqRoute: FaqRoute,
   NewsRoute: NewsRoute,
+  PrivacyRoute: PrivacyRoute,
   PsychologistsRoute: PsychologistsRoute,
   RequiredDocumentsRoute: RequiredDocumentsRoute,
   ResourcesRoute: ResourcesRoute,
+  TermsRoute: TermsRoute,
   VolunteerRoute: VolunteerRoute,
   SchoolsSchoolIdRoute: SchoolsSchoolIdRoute,
   SchoolsIndexRoute: SchoolsIndexRoute,
