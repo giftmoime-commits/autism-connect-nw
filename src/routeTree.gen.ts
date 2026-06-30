@@ -9,10 +9,22 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VolunteerRouteImport } from './routes/volunteer'
+import { Route as ApplyRouteImport } from './routes/apply'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SchoolsIndexRouteImport } from './routes/schools.index'
 import { Route as SchoolsSchoolIdRouteImport } from './routes/schools.$schoolId'
 
+const VolunteerRoute = VolunteerRouteImport.update({
+  id: '/volunteer',
+  path: '/volunteer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApplyRoute = ApplyRouteImport.update({
+  id: '/apply',
+  path: '/apply',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -31,36 +43,64 @@ const SchoolsSchoolIdRoute = SchoolsSchoolIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/apply': typeof ApplyRoute
+  '/volunteer': typeof VolunteerRoute
   '/schools/$schoolId': typeof SchoolsSchoolIdRoute
   '/schools/': typeof SchoolsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/apply': typeof ApplyRoute
+  '/volunteer': typeof VolunteerRoute
   '/schools/$schoolId': typeof SchoolsSchoolIdRoute
   '/schools': typeof SchoolsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/apply': typeof ApplyRoute
+  '/volunteer': typeof VolunteerRoute
   '/schools/$schoolId': typeof SchoolsSchoolIdRoute
   '/schools/': typeof SchoolsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/schools/$schoolId' | '/schools/'
+  fullPaths: '/' | '/apply' | '/volunteer' | '/schools/$schoolId' | '/schools/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/schools/$schoolId' | '/schools'
-  id: '__root__' | '/' | '/schools/$schoolId' | '/schools/'
+  to: '/' | '/apply' | '/volunteer' | '/schools/$schoolId' | '/schools'
+  id:
+    | '__root__'
+    | '/'
+    | '/apply'
+    | '/volunteer'
+    | '/schools/$schoolId'
+    | '/schools/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApplyRoute: typeof ApplyRoute
+  VolunteerRoute: typeof VolunteerRoute
   SchoolsSchoolIdRoute: typeof SchoolsSchoolIdRoute
   SchoolsIndexRoute: typeof SchoolsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/volunteer': {
+      id: '/volunteer'
+      path: '/volunteer'
+      fullPath: '/volunteer'
+      preLoaderRoute: typeof VolunteerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/apply': {
+      id: '/apply'
+      path: '/apply'
+      fullPath: '/apply'
+      preLoaderRoute: typeof ApplyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -87,6 +127,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApplyRoute: ApplyRoute,
+  VolunteerRoute: VolunteerRoute,
   SchoolsSchoolIdRoute: SchoolsSchoolIdRoute,
   SchoolsIndexRoute: SchoolsIndexRoute,
 }
