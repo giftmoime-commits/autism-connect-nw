@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VolunteerRouteImport } from './routes/volunteer'
+import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as RequiredDocumentsRouteImport } from './routes/required-documents'
 import { Route as PsychologistsRouteImport } from './routes/psychologists'
 import { Route as NewsRouteImport } from './routes/news'
@@ -24,6 +25,11 @@ import { Route as SchoolsSchoolIdRouteImport } from './routes/schools.$schoolId'
 const VolunteerRoute = VolunteerRouteImport.update({
   id: '/volunteer',
   path: '/volunteer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResourcesRoute = ResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RequiredDocumentsRoute = RequiredDocumentsRouteImport.update({
@@ -86,6 +92,7 @@ export interface FileRoutesByFullPath {
   '/news': typeof NewsRoute
   '/psychologists': typeof PsychologistsRoute
   '/required-documents': typeof RequiredDocumentsRoute
+  '/resources': typeof ResourcesRoute
   '/volunteer': typeof VolunteerRoute
   '/schools/$schoolId': typeof SchoolsSchoolIdRoute
   '/schools/': typeof SchoolsIndexRoute
@@ -99,6 +106,7 @@ export interface FileRoutesByTo {
   '/news': typeof NewsRoute
   '/psychologists': typeof PsychologistsRoute
   '/required-documents': typeof RequiredDocumentsRoute
+  '/resources': typeof ResourcesRoute
   '/volunteer': typeof VolunteerRoute
   '/schools/$schoolId': typeof SchoolsSchoolIdRoute
   '/schools': typeof SchoolsIndexRoute
@@ -113,6 +121,7 @@ export interface FileRoutesById {
   '/news': typeof NewsRoute
   '/psychologists': typeof PsychologistsRoute
   '/required-documents': typeof RequiredDocumentsRoute
+  '/resources': typeof ResourcesRoute
   '/volunteer': typeof VolunteerRoute
   '/schools/$schoolId': typeof SchoolsSchoolIdRoute
   '/schools/': typeof SchoolsIndexRoute
@@ -128,6 +137,7 @@ export interface FileRouteTypes {
     | '/news'
     | '/psychologists'
     | '/required-documents'
+    | '/resources'
     | '/volunteer'
     | '/schools/$schoolId'
     | '/schools/'
@@ -141,6 +151,7 @@ export interface FileRouteTypes {
     | '/news'
     | '/psychologists'
     | '/required-documents'
+    | '/resources'
     | '/volunteer'
     | '/schools/$schoolId'
     | '/schools'
@@ -154,6 +165,7 @@ export interface FileRouteTypes {
     | '/news'
     | '/psychologists'
     | '/required-documents'
+    | '/resources'
     | '/volunteer'
     | '/schools/$schoolId'
     | '/schools/'
@@ -168,6 +180,7 @@ export interface RootRouteChildren {
   NewsRoute: typeof NewsRoute
   PsychologistsRoute: typeof PsychologistsRoute
   RequiredDocumentsRoute: typeof RequiredDocumentsRoute
+  ResourcesRoute: typeof ResourcesRoute
   VolunteerRoute: typeof VolunteerRoute
   SchoolsSchoolIdRoute: typeof SchoolsSchoolIdRoute
   SchoolsIndexRoute: typeof SchoolsIndexRoute
@@ -180,6 +193,13 @@ declare module '@tanstack/react-router' {
       path: '/volunteer'
       fullPath: '/volunteer'
       preLoaderRoute: typeof VolunteerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources': {
+      id: '/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/required-documents': {
@@ -264,6 +284,7 @@ const rootRouteChildren: RootRouteChildren = {
   NewsRoute: NewsRoute,
   PsychologistsRoute: PsychologistsRoute,
   RequiredDocumentsRoute: RequiredDocumentsRoute,
+  ResourcesRoute: ResourcesRoute,
   VolunteerRoute: VolunteerRoute,
   SchoolsSchoolIdRoute: SchoolsSchoolIdRoute,
   SchoolsIndexRoute: SchoolsIndexRoute,
