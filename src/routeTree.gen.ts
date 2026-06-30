@@ -9,38 +9,468 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VolunteerRouteImport } from './routes/volunteer'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SuccessStoriesRouteImport } from './routes/success-stories'
+import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as RequiredDocumentsRouteImport } from './routes/required-documents'
+import { Route as PsychologistsRouteImport } from './routes/psychologists'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as PartnerRouteImport } from './routes/partner'
+import { Route as NewsRouteImport } from './routes/news'
+import { Route as FeedbackRouteImport } from './routes/feedback'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as DonateRouteImport } from './routes/donate'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ClinicsRouteImport } from './routes/clinics'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as ApplyRouteImport } from './routes/apply'
+import { Route as ActivitiesRouteImport } from './routes/activities'
+import { Route as AccessibilityRouteImport } from './routes/accessibility'
+import { Route as AboutAutismRouteImport } from './routes/about-autism'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SchoolsIndexRouteImport } from './routes/schools.index'
+import { Route as SchoolsSchoolIdRouteImport } from './routes/schools.$schoolId'
 
+const VolunteerRoute = VolunteerRouteImport.update({
+  id: '/volunteer',
+  path: '/volunteer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SuccessStoriesRoute = SuccessStoriesRouteImport.update({
+  id: '/success-stories',
+  path: '/success-stories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResourcesRoute = ResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RequiredDocumentsRoute = RequiredDocumentsRouteImport.update({
+  id: '/required-documents',
+  path: '/required-documents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PsychologistsRoute = PsychologistsRouteImport.update({
+  id: '/psychologists',
+  path: '/psychologists',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartnerRoute = PartnerRouteImport.update({
+  id: '/partner',
+  path: '/partner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsRoute = NewsRouteImport.update({
+  id: '/news',
+  path: '/news',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeedbackRoute = FeedbackRouteImport.update({
+  id: '/feedback',
+  path: '/feedback',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DonateRoute = DonateRouteImport.update({
+  id: '/donate',
+  path: '/donate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClinicsRoute = ClinicsRouteImport.update({
+  id: '/clinics',
+  path: '/clinics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApplyRoute = ApplyRouteImport.update({
+  id: '/apply',
+  path: '/apply',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActivitiesRoute = ActivitiesRouteImport.update({
+  id: '/activities',
+  path: '/activities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccessibilityRoute = AccessibilityRouteImport.update({
+  id: '/accessibility',
+  path: '/accessibility',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutAutismRoute = AboutAutismRouteImport.update({
+  id: '/about-autism',
+  path: '/about-autism',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SchoolsIndexRoute = SchoolsIndexRouteImport.update({
+  id: '/schools/',
+  path: '/schools/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SchoolsSchoolIdRoute = SchoolsSchoolIdRouteImport.update({
+  id: '/schools/$schoolId',
+  path: '/schools/$schoolId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/about-autism': typeof AboutAutismRoute
+  '/accessibility': typeof AccessibilityRoute
+  '/activities': typeof ActivitiesRoute
+  '/apply': typeof ApplyRoute
+  '/auth': typeof AuthRoute
+  '/clinics': typeof ClinicsRoute
+  '/contact': typeof ContactRoute
+  '/donate': typeof DonateRoute
+  '/faq': typeof FaqRoute
+  '/feedback': typeof FeedbackRoute
+  '/news': typeof NewsRoute
+  '/partner': typeof PartnerRoute
+  '/privacy': typeof PrivacyRoute
+  '/psychologists': typeof PsychologistsRoute
+  '/required-documents': typeof RequiredDocumentsRoute
+  '/resources': typeof ResourcesRoute
+  '/success-stories': typeof SuccessStoriesRoute
+  '/terms': typeof TermsRoute
+  '/volunteer': typeof VolunteerRoute
+  '/schools/$schoolId': typeof SchoolsSchoolIdRoute
+  '/schools/': typeof SchoolsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/about-autism': typeof AboutAutismRoute
+  '/accessibility': typeof AccessibilityRoute
+  '/activities': typeof ActivitiesRoute
+  '/apply': typeof ApplyRoute
+  '/auth': typeof AuthRoute
+  '/clinics': typeof ClinicsRoute
+  '/contact': typeof ContactRoute
+  '/donate': typeof DonateRoute
+  '/faq': typeof FaqRoute
+  '/feedback': typeof FeedbackRoute
+  '/news': typeof NewsRoute
+  '/partner': typeof PartnerRoute
+  '/privacy': typeof PrivacyRoute
+  '/psychologists': typeof PsychologistsRoute
+  '/required-documents': typeof RequiredDocumentsRoute
+  '/resources': typeof ResourcesRoute
+  '/success-stories': typeof SuccessStoriesRoute
+  '/terms': typeof TermsRoute
+  '/volunteer': typeof VolunteerRoute
+  '/schools/$schoolId': typeof SchoolsSchoolIdRoute
+  '/schools': typeof SchoolsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/about-autism': typeof AboutAutismRoute
+  '/accessibility': typeof AccessibilityRoute
+  '/activities': typeof ActivitiesRoute
+  '/apply': typeof ApplyRoute
+  '/auth': typeof AuthRoute
+  '/clinics': typeof ClinicsRoute
+  '/contact': typeof ContactRoute
+  '/donate': typeof DonateRoute
+  '/faq': typeof FaqRoute
+  '/feedback': typeof FeedbackRoute
+  '/news': typeof NewsRoute
+  '/partner': typeof PartnerRoute
+  '/privacy': typeof PrivacyRoute
+  '/psychologists': typeof PsychologistsRoute
+  '/required-documents': typeof RequiredDocumentsRoute
+  '/resources': typeof ResourcesRoute
+  '/success-stories': typeof SuccessStoriesRoute
+  '/terms': typeof TermsRoute
+  '/volunteer': typeof VolunteerRoute
+  '/schools/$schoolId': typeof SchoolsSchoolIdRoute
+  '/schools/': typeof SchoolsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/about-autism'
+    | '/accessibility'
+    | '/activities'
+    | '/apply'
+    | '/auth'
+    | '/clinics'
+    | '/contact'
+    | '/donate'
+    | '/faq'
+    | '/feedback'
+    | '/news'
+    | '/partner'
+    | '/privacy'
+    | '/psychologists'
+    | '/required-documents'
+    | '/resources'
+    | '/success-stories'
+    | '/terms'
+    | '/volunteer'
+    | '/schools/$schoolId'
+    | '/schools/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/about-autism'
+    | '/accessibility'
+    | '/activities'
+    | '/apply'
+    | '/auth'
+    | '/clinics'
+    | '/contact'
+    | '/donate'
+    | '/faq'
+    | '/feedback'
+    | '/news'
+    | '/partner'
+    | '/privacy'
+    | '/psychologists'
+    | '/required-documents'
+    | '/resources'
+    | '/success-stories'
+    | '/terms'
+    | '/volunteer'
+    | '/schools/$schoolId'
+    | '/schools'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/about-autism'
+    | '/accessibility'
+    | '/activities'
+    | '/apply'
+    | '/auth'
+    | '/clinics'
+    | '/contact'
+    | '/donate'
+    | '/faq'
+    | '/feedback'
+    | '/news'
+    | '/partner'
+    | '/privacy'
+    | '/psychologists'
+    | '/required-documents'
+    | '/resources'
+    | '/success-stories'
+    | '/terms'
+    | '/volunteer'
+    | '/schools/$schoolId'
+    | '/schools/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AboutAutismRoute: typeof AboutAutismRoute
+  AccessibilityRoute: typeof AccessibilityRoute
+  ActivitiesRoute: typeof ActivitiesRoute
+  ApplyRoute: typeof ApplyRoute
+  AuthRoute: typeof AuthRoute
+  ClinicsRoute: typeof ClinicsRoute
+  ContactRoute: typeof ContactRoute
+  DonateRoute: typeof DonateRoute
+  FaqRoute: typeof FaqRoute
+  FeedbackRoute: typeof FeedbackRoute
+  NewsRoute: typeof NewsRoute
+  PartnerRoute: typeof PartnerRoute
+  PrivacyRoute: typeof PrivacyRoute
+  PsychologistsRoute: typeof PsychologistsRoute
+  RequiredDocumentsRoute: typeof RequiredDocumentsRoute
+  ResourcesRoute: typeof ResourcesRoute
+  SuccessStoriesRoute: typeof SuccessStoriesRoute
+  TermsRoute: typeof TermsRoute
+  VolunteerRoute: typeof VolunteerRoute
+  SchoolsSchoolIdRoute: typeof SchoolsSchoolIdRoute
+  SchoolsIndexRoute: typeof SchoolsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/volunteer': {
+      id: '/volunteer'
+      path: '/volunteer'
+      fullPath: '/volunteer'
+      preLoaderRoute: typeof VolunteerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/success-stories': {
+      id: '/success-stories'
+      path: '/success-stories'
+      fullPath: '/success-stories'
+      preLoaderRoute: typeof SuccessStoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources': {
+      id: '/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/required-documents': {
+      id: '/required-documents'
+      path: '/required-documents'
+      fullPath: '/required-documents'
+      preLoaderRoute: typeof RequiredDocumentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/psychologists': {
+      id: '/psychologists'
+      path: '/psychologists'
+      fullPath: '/psychologists'
+      preLoaderRoute: typeof PsychologistsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/partner': {
+      id: '/partner'
+      path: '/partner'
+      fullPath: '/partner'
+      preLoaderRoute: typeof PartnerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news': {
+      id: '/news'
+      path: '/news'
+      fullPath: '/news'
+      preLoaderRoute: typeof NewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/feedback': {
+      id: '/feedback'
+      path: '/feedback'
+      fullPath: '/feedback'
+      preLoaderRoute: typeof FeedbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/donate': {
+      id: '/donate'
+      path: '/donate'
+      fullPath: '/donate'
+      preLoaderRoute: typeof DonateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/clinics': {
+      id: '/clinics'
+      path: '/clinics'
+      fullPath: '/clinics'
+      preLoaderRoute: typeof ClinicsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/apply': {
+      id: '/apply'
+      path: '/apply'
+      fullPath: '/apply'
+      preLoaderRoute: typeof ApplyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/activities': {
+      id: '/activities'
+      path: '/activities'
+      fullPath: '/activities'
+      preLoaderRoute: typeof ActivitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accessibility': {
+      id: '/accessibility'
+      path: '/accessibility'
+      fullPath: '/accessibility'
+      preLoaderRoute: typeof AccessibilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about-autism': {
+      id: '/about-autism'
+      path: '/about-autism'
+      fullPath: '/about-autism'
+      preLoaderRoute: typeof AboutAutismRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +478,47 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/schools/': {
+      id: '/schools/'
+      path: '/schools'
+      fullPath: '/schools/'
+      preLoaderRoute: typeof SchoolsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/schools/$schoolId': {
+      id: '/schools/$schoolId'
+      path: '/schools/$schoolId'
+      fullPath: '/schools/$schoolId'
+      preLoaderRoute: typeof SchoolsSchoolIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AboutAutismRoute: AboutAutismRoute,
+  AccessibilityRoute: AccessibilityRoute,
+  ActivitiesRoute: ActivitiesRoute,
+  ApplyRoute: ApplyRoute,
+  AuthRoute: AuthRoute,
+  ClinicsRoute: ClinicsRoute,
+  ContactRoute: ContactRoute,
+  DonateRoute: DonateRoute,
+  FaqRoute: FaqRoute,
+  FeedbackRoute: FeedbackRoute,
+  NewsRoute: NewsRoute,
+  PartnerRoute: PartnerRoute,
+  PrivacyRoute: PrivacyRoute,
+  PsychologistsRoute: PsychologistsRoute,
+  RequiredDocumentsRoute: RequiredDocumentsRoute,
+  ResourcesRoute: ResourcesRoute,
+  SuccessStoriesRoute: SuccessStoriesRoute,
+  TermsRoute: TermsRoute,
+  VolunteerRoute: VolunteerRoute,
+  SchoolsSchoolIdRoute: SchoolsSchoolIdRoute,
+  SchoolsIndexRoute: SchoolsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
