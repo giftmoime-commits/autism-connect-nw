@@ -54,7 +54,7 @@ function SchoolDetail() {
 
               <h2 className="mt-10 font-display text-2xl font-bold">Facilities</h2>
               <ul className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
-                {school.facilities.map((f) => (
+                {school.facilities.map((f: string) => (
                   <li key={f} className="flex items-center gap-2 text-sm">
                     <CheckCircle2 size={16} className="text-brand-teal" /> {f}
                   </li>
